@@ -1,13 +1,14 @@
 /* ==========================================================
-   WORKMATCH — Interactions v3
+   WORKMATCH — Interactions v2
    ========================================================== */
 
+/* ---------- Nav scroll state ---------- */
 const nav = document.getElementById('nav');
 const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 30);
 onScroll();
 window.addEventListener('scroll', onScroll, { passive: true });
 
-/* ---------- Reveal on scroll ---------- */
+/* ---------- Scroll reveal ---------- */
 const revealIO = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
@@ -17,6 +18,28 @@ const revealIO = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.12, rootMargin: '0px 0px -80px 0px' });
 document.querySelectorAll('.reveal').forEach((el) => revealIO.observe(el));
+
+/* ---------- Demo: scroll-linked step activation ---------- */
+const demoSteps = document.querySelectorAll('.demo__step');
+const demoStates = document.querySelectorAll('.demo__state');
+
+if (demoSteps.length && demoStates.length) {
+  const activateDemo = (n) => {
+    demoSteps.forEach((s) => s.classList.toggle('is-active', s.dataset.demo === String(n)));
+    demoStates.forEach((s) => s.classList.toggle('is-active', s.dataset.state === String(n)));
+  };
+
+  const demoIO = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) activateDemo(entry.target.dataset.demo);
+    });
+  }, { threshold: 0.55, rootMargin: '-25% 0px -25% 0px' });
+
+  demoSteps.forEach((s) => demoIO.observe(s));
+
+  // Default state
+  activateDemo(1);
+}
 
 /* ---------- Waitlist forms ---------- */
 document.querySelectorAll('.js-waitlist').forEach((form) => {
@@ -44,7 +67,7 @@ document.querySelectorAll('.js-waitlist').forEach((form) => {
   });
 });
 
-/* ---------- Smooth anchor scroll ---------- */
+/* ---------- Smooth anchor scroll with fixed nav offset ---------- */
 document.querySelectorAll('a[href^="#"]').forEach((link) => {
   link.addEventListener('click', (e) => {
     const id = link.getAttribute('href');
@@ -57,32 +80,13 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
   });
 });
 
-/* ---------- Pause marquees when off-screen (perf) ---------- */
-const marquees = [
-  document.querySelector('.ticker__row'),
-  document.querySelector('.band__track')
-].filter(Boolean);
-
-marquees.forEach((el) => {
-  const io = new IntersectionObserver((entries) => {
+/* ---------- Marquee pause when off-screen ---------- */
+const ticker = document.querySelector('.ticker__row');
+if (ticker) {
+  const tIO = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
-      el.style.animationPlayState = entry.isIntersecting ? 'running' : 'paused';
+      ticker.style.animationPlayState = entry.isIntersecting ? 'running' : 'paused';
     });
   }, { threshold: 0 });
-  io.observe(el.parentElement);
-});
-
-/* ---------- Lazy-load fallback for older browsers ---------- */
-if ('loading' in HTMLImageElement.prototype) {
-  // Native lazy loading supported — nothing to do.
-} else {
-  const lazyIO = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
-      const img = entry.target;
-      if (img.dataset.src) img.src = img.dataset.src;
-      lazyIO.unobserve(img);
-    });
-  }, { rootMargin: '200px' });
-  document.querySelectorAll('img[data-src]').forEach((img) => lazyIO.observe(img));
+  tIO.observe(ticker.parentElement);
 }
