@@ -33,8 +33,8 @@
 
     <nav class="nav__links">
       <a href="#how"><span>01</span> How it works</a>
-      <a href="#features"><span>02</span> Features</a>
-      <a href="#compare"><span>03</span> Compare</a>
+      <a href="#workers"><span>02</span> Workers</a>
+      <a href="#features"><span>03</span> Features</a>
       <a href="#who"><span>04</span> Who it's for</a>
     </nav>
 
@@ -97,26 +97,29 @@
         </div>
       </div>
 
-      <!-- Product surface -->
+      <!-- Editorial image + floating product card -->
       <div class="hero__visual">
-        <div class="surface">
+        <figure class="hero__photo">
+          <img
+            src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1400&q=85"
+            alt="A local technician and business owner reviewing a job together"
+            loading="eager" />
+          <figcaption class="hero__photo-cap">
+            <span class="mono-label">Riyadh · 09:41</span>
+            <span>Verified worker meets verified client.</span>
+          </figcaption>
+        </figure>
+
+        <div class="surface surface--float">
           <div class="surface__chrome">
             <span class="chrome-dot"></span>
             <span class="chrome-dot"></span>
             <span class="chrome-dot"></span>
-            <span class="chrome-url">workmatch.ai / new-request</span>
+            <span class="chrome-url">workmatch.ai</span>
             <span class="chrome-tag">LIVE</span>
           </div>
 
           <div class="surface__body">
-            <div class="req">
-              <div class="req__label">Request</div>
-              <p>"I need an AC technician tomorrow afternoon to fix my office AC. Budget: SAR 300."</p>
-              <div class="req__chips">
-                <span>AC Repair</span><span>Tomorrow · PM</span><span>SAR 300</span><span>Riyadh</span>
-              </div>
-            </div>
-
             <div class="match-head">
               <div class="match-head__left">
                 <span class="mono-label">Top matches</span>
@@ -128,61 +131,46 @@
             <div class="matches">
               <div class="worker">
                 <div class="worker__av">
-                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80" alt="" loading="lazy">
+                  <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=200&q=85" alt="" loading="lazy">
                 </div>
                 <div class="worker__info">
                   <div class="worker__name">
                     Faisal A.
                     <svg class="check" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 4 6v6c0 5 3.4 9.2 8 10 4.6-.8 8-5 8-10V6l-8-4Zm-1 13-3-3 1.4-1.4L11 12.2l4.6-4.6L17 9l-6 6Z"/></svg>
                   </div>
-                  <div class="worker__meta">★ 4.9 · 214 jobs · AC &amp; Cooling</div>
+                  <div class="worker__meta">★ 4.9 · 214 jobs</div>
                 </div>
                 <div class="worker__rate"><b>SAR 280</b><span>visit</span></div>
-                <button class="worker__btn">Book</button>
               </div>
 
               <div class="worker">
                 <div class="worker__av">
-                  <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80" alt="" loading="lazy">
+                  <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=200&q=85" alt="" loading="lazy">
                 </div>
                 <div class="worker__info">
                   <div class="worker__name">
                     Noura S.
                     <svg class="check" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 4 6v6c0 5 3.4 9.2 8 10 4.6-.8 8-5 8-10V6l-8-4Zm-1 13-3-3 1.4-1.4L11 12.2l4.6-4.6L17 9l-6 6Z"/></svg>
                   </div>
-                  <div class="worker__meta">★ 4.8 · 137 jobs · HVAC certified</div>
+                  <div class="worker__meta">★ 4.8 · 137 jobs</div>
                 </div>
                 <div class="worker__rate"><b>SAR 300</b><span>visit</span></div>
-                <button class="worker__btn">Book</button>
               </div>
 
               <div class="worker">
                 <div class="worker__av">
-                  <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80" alt="" loading="lazy">
+                  <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=200&q=85" alt="" loading="lazy">
                 </div>
                 <div class="worker__info">
                   <div class="worker__name">
                     Omar K.
                     <svg class="check" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 4 6v6c0 5 3.4 9.2 8 10 4.6-.8 8-5 8-10V6l-8-4Zm-1 13-3-3 1.4-1.4L11 12.2l4.6-4.6L17 9l-6 6Z"/></svg>
                   </div>
-                  <div class="worker__meta">★ 4.7 · 98 jobs · Available PM</div>
+                  <div class="worker__meta">★ 4.7 · 98 jobs</div>
                 </div>
                 <div class="worker__rate"><b>SAR 260</b><span>visit</span></div>
-                <button class="worker__btn">Book</button>
               </div>
             </div>
-
-            <div class="surface__foot">
-              <span class="mono-label">Funds held in escrow until you approve</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="surface__badge">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.4 9.2 8 10 4.6-.8 8-5 8-10V6l-8-4Z"/><path d="m9 12 2 2 4-4"/></svg>
-          <div>
-            <b>Verified workers</b>
-            <span>ID · references · reliability</span>
           </div>
         </div>
       </div>
@@ -231,10 +219,22 @@
 
     <div class="problem">
       <div class="problem__media reveal">
-        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1400&q=80" alt="A business owner and technician in conversation" loading="lazy">
-        <div class="problem__caption">
-          <span class="mono-label">Fig. 01</span>
-          The old way. Hours of searching, dozens of calls — still unsure who to pick.
+        <!-- Photo collage: three shots that read like a documentary -->
+        <div class="collage">
+          <figure class="collage__a">
+            <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1000&q=85"
+                 alt="A technician mid-task" loading="lazy">
+            <figcaption><span class="mono-label">Fig. 01</span>The right fit matters.</figcaption>
+          </figure>
+          <figure class="collage__b">
+            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1000&q=85"
+                 alt="A small business team" loading="lazy">
+          </figure>
+          <figure class="collage__c">
+            <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1000&q=85"
+                 alt="A home service in progress" loading="lazy">
+            <figcaption><span class="mono-label">Fig. 02</span>Trust is not a filter.</figcaption>
+          </figure>
         </div>
       </div>
 
@@ -260,12 +260,114 @@
   </div>
 </section>
 
-<!-- ============ HOW IT WORKS ============ -->
-<section class="section section--rule" id="how">
+<!-- ============ FEATURED WORKERS (NEW) ============ -->
+<section class="section section--rule workers" id="workers">
   <div class="container">
     <header class="sec-head sec-head--split">
       <div>
-        <span class="mono-label">N° 003 — Process</span>
+        <span class="mono-label">N° 003 — Real people</span>
+        <h2 class="sec-title">
+          Meet a few of
+          <em>the verified.</em>
+        </h2>
+      </div>
+      <p class="sec-lead">
+        Every worker on WorkMatch has been identity-checked, reference-verified, and rated
+        by real customers. These are the kinds of people you'll meet in the app.
+      </p>
+    </header>
+
+    <div class="workers__grid">
+      <article class="wcard reveal">
+        <div class="wcard__photo">
+          <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=85"
+               alt="Electrical technician" loading="lazy">
+          <span class="wcard__badge">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 4 6v6c0 5 3.4 9.2 8 10 4.6-.8 8-5 8-10V6l-8-4Zm-1 13-3-3 1.4-1.4L11 12.2l4.6-4.6L17 9l-6 6Z"/></svg>
+            Verified
+          </span>
+        </div>
+        <div class="wcard__body">
+          <div class="wcard__row">
+            <h3>Faisal Al-Harbi</h3>
+            <span class="wcard__rate">★ 4.9</span>
+          </div>
+          <p class="wcard__role">Electrical &amp; AC technician · Riyadh</p>
+          <p class="wcard__meta">214 jobs · 6 yrs · Available tomorrow</p>
+        </div>
+      </article>
+
+      <article class="wcard reveal" style="--d:80ms">
+        <div class="wcard__photo">
+          <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=800&q=85"
+               alt="Interior and home cleaning specialist" loading="lazy">
+          <span class="wcard__badge">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 4 6v6c0 5 3.4 9.2 8 10 4.6-.8 8-5 8-10V6l-8-4Zm-1 13-3-3 1.4-1.4L11 12.2l4.6-4.6L17 9l-6 6Z"/></svg>
+            Verified
+          </span>
+        </div>
+        <div class="wcard__body">
+          <div class="wcard__row">
+            <h3>Noura Saleh</h3>
+            <span class="wcard__rate">★ 4.8</span>
+          </div>
+          <p class="wcard__role">Home &amp; office cleaning · Riyadh</p>
+          <p class="wcard__meta">137 jobs · 4 yrs · Recurring OK</p>
+        </div>
+      </article>
+
+      <article class="wcard reveal" style="--d:160ms">
+        <div class="wcard__photo">
+          <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=800&q=85"
+               alt="Graphic designer at work" loading="lazy">
+          <span class="wcard__badge">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 4 6v6c0 5 3.4 9.2 8 10 4.6-.8 8-5 8-10V6l-8-4Zm-1 13-3-3 1.4-1.4L11 12.2l4.6-4.6L17 9l-6 6Z"/></svg>
+            Verified
+          </span>
+        </div>
+        <div class="wcard__body">
+          <div class="wcard__row">
+            <h3>Omar Khalid</h3>
+            <span class="wcard__rate">★ 4.7</span>
+          </div>
+          <p class="wcard__role">Brand &amp; graphic designer · Remote</p>
+          <p class="wcard__meta">98 projects · 8 yrs · Milestone pay</p>
+        </div>
+      </article>
+
+      <article class="wcard reveal" style="--d:240ms">
+        <div class="wcard__photo">
+          <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=800&q=85"
+               alt="Business consultant" loading="lazy">
+          <span class="wcard__badge">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 4 6v6c0 5 3.4 9.2 8 10 4.6-.8 8-5 8-10V6l-8-4Zm-1 13-3-3 1.4-1.4L11 12.2l4.6-4.6L17 9l-6 6Z"/></svg>
+            Verified
+          </span>
+        </div>
+        <div class="wcard__body">
+          <div class="wcard__row">
+            <h3>Yousef Mansour</h3>
+            <span class="wcard__rate">★ 4.9</span>
+          </div>
+          <p class="wcard__role">Accounting &amp; finance · Riyadh</p>
+          <p class="wcard__meta">61 clients · 12 yrs · Monthly retainers</p>
+        </div>
+      </article>
+    </div>
+
+    <p class="workers__note reveal">
+      <span class="dot"></span>
+      Verification in progress — a small pilot cohort launches in Riyadh first.
+    </p>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section class="section" id="how">
+  <div class="container">
+    <header class="sec-head sec-head--split">
+      <div>
+        <span class="mono-label">N° 004 — Process</span>
         <h2 class="sec-title">
           Three steps.
           <em>That's the whole thing.</em>
@@ -309,121 +411,27 @@
   </div>
 </section>
 
-<!-- ============ SCROLL DEMO ============ -->
-<section class="demo" id="demo">
-  <div class="container demo__inner">
-    <div class="demo__steps">
-      <header class="sec-head">
-        <span class="mono-label">N° 004 — Watch it work</span>
-        <h2 class="sec-title">
-          From a sentence
-          <em>to a shortlist</em> in seconds.
-        </h2>
-      </header>
-
-      <div class="demo__step is-active" data-demo="1">
-        <span class="demo__num">01</span>
-        <h3>You type a sentence</h3>
-        <p>No forms to fill in. No dropdowns. Just describe what you need, the way you'd say it to a friend.</p>
-      </div>
-
-      <div class="demo__step" data-demo="2">
-        <span class="demo__num">02</span>
-        <h3>AI reads and matches</h3>
-        <p>WorkMatch parses skills, timing, budget and location — then scans thousands of verified local workers.</p>
-      </div>
-
-      <div class="demo__step" data-demo="3">
-        <span class="demo__num">03</span>
-        <h3>You get a shortlist</h3>
-        <p>Three or four people who actually fit. Every one verified, priced, and available when you need them.</p>
-      </div>
-    </div>
-
-    <div class="demo__pin">
-      <div class="surface surface--demo">
-        <div class="surface__chrome">
-          <span class="chrome-dot"></span>
-          <span class="chrome-dot"></span>
-          <span class="chrome-dot"></span>
-          <span class="chrome-url">workmatch.ai / new-request</span>
-        </div>
-        <div class="surface__body">
-          <div class="demo__state" data-state="1">
-            <div class="req req--typing">
-              <div class="req__label">Request</div>
-              <p class="typing">"I need an AC technician tomorrow<span class="caret"></span></p>
-            </div>
-          </div>
-
-          <div class="demo__state" data-state="2">
-            <div class="req">
-              <div class="req__label">Request</div>
-              <p>"I need an AC technician tomorrow afternoon to fix my office AC. Budget: SAR 300."</p>
-              <div class="req__chips">
-                <span>AC Repair</span><span>Tomorrow · PM</span><span>SAR 300</span><span>Riyadh</span>
-              </div>
-              <div class="scan">
-                <span class="mono-label">Scanning</span>
-                <span class="scan__bar"></span>
-                <span class="scan__count">1,248 workers</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="demo__state" data-state="3">
-            <div class="match-head">
-              <div class="match-head__left">
-                <span class="mono-label">Top matches</span>
-                <span class="match-head__count">3 of 1,248</span>
-              </div>
-              <span class="match-head__status"><span class="pulse"></span>matched</span>
-            </div>
-
-            <div class="matches">
-              <div class="worker">
-                <div class="worker__av"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80" alt="" loading="lazy"></div>
-                <div class="worker__info">
-                  <div class="worker__name">Faisal A.
-                    <svg class="check" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 4 6v6c0 5 3.4 9.2 8 10 4.6-.8 8-5 8-10V6l-8-4Zm-1 13-3-3 1.4-1.4L11 12.2l4.6-4.6L17 9l-6 6Z"/></svg>
-                  </div>
-                  <div class="worker__meta">★ 4.9 · 214 jobs · AC &amp; Cooling</div>
-                </div>
-                <div class="worker__rate"><b>SAR 280</b><span>visit</span></div>
-                <button class="worker__btn">Book</button>
-              </div>
-              <div class="worker">
-                <div class="worker__av"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80" alt="" loading="lazy"></div>
-                <div class="worker__info">
-                  <div class="worker__name">Noura S.
-                    <svg class="check" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 4 6v6c0 5 3.4 9.2 8 10 4.6-.8 8-5 8-10V6l-8-4Zm-1 13-3-3 1.4-1.4L11 12.2l4.6-4.6L17 9l-6 6Z"/></svg>
-                  </div>
-                  <div class="worker__meta">★ 4.8 · 137 jobs · HVAC certified</div>
-                </div>
-                <div class="worker__rate"><b>SAR 300</b><span>visit</span></div>
-                <button class="worker__btn">Book</button>
-              </div>
-              <div class="worker">
-                <div class="worker__av"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80" alt="" loading="lazy"></div>
-                <div class="worker__info">
-                  <div class="worker__name">Omar K.
-                    <svg class="check" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 4 6v6c0 5 3.4 9.2 8 10 4.6-.8 8-5 8-10V6l-8-4Zm-1 13-3-3 1.4-1.4L11 12.2l4.6-4.6L17 9l-6 6Z"/></svg>
-                  </div>
-                  <div class="worker__meta">★ 4.7 · 98 jobs · Available PM</div>
-                </div>
-                <div class="worker__rate"><b>SAR 260</b><span>visit</span></div>
-                <button class="worker__btn">Book</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+<!-- ============ PHOTO BAND (NEW) ============ -->
+<section class="band" aria-hidden="true">
+  <div class="band__track">
+    <figure><img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=900&q=80" alt="" loading="lazy"></figure>
+    <figure><img src="https://images.unsplash.com/photo-1585421514738-01798e348b17?auto=format&fit=crop&w=900&q=80" alt="" loading="lazy"></figure>
+    <figure><img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=900&q=80" alt="" loading="lazy"></figure>
+    <figure><img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=900&q=80" alt="" loading="lazy"></figure>
+    <figure><img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=900&q=80" alt="" loading="lazy"></figure>
+    <figure><img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=900&q=80" alt="" loading="lazy"></figure>
+    <!-- duplicate for seamless loop -->
+    <figure><img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=900&q=80" alt="" loading="lazy"></figure>
+    <figure><img src="https://images.unsplash.com/photo-1585421514738-01798e348b17?auto=format&fit=crop&w=900&q=80" alt="" loading="lazy"></figure>
+    <figure><img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=900&q=80" alt="" loading="lazy"></figure>
+    <figure><img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=900&q=80" alt="" loading="lazy"></figure>
+    <figure><img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=900&q=80" alt="" loading="lazy"></figure>
+    <figure><img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=900&q=80" alt="" loading="lazy"></figure>
   </div>
 </section>
 
 <!-- ============ FEATURES BENTO ============ -->
-<section class="section section--rule" id="features">
+<section class="section" id="features">
   <div class="container">
     <header class="sec-head sec-head--split">
       <div>
@@ -551,7 +559,7 @@
   </div>
 </section>
 
-<!-- ============ WHO ============ -->
+<!-- ============ AUDIENCE ============ -->
 <section class="section" id="who">
   <div class="container">
     <header class="sec-head">
@@ -564,7 +572,8 @@
 
     <div class="audience">
       <article class="acard reveal">
-        <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1400&q=80" alt="" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1400&q=85"
+             alt="A small business owner in a bright office" loading="lazy">
         <div class="acard__ov"></div>
         <div class="acard__body">
           <span class="mono-label mono-label--light">For business</span>
@@ -578,7 +587,8 @@
       </article>
 
       <article class="acard reveal" style="--d:140ms">
-        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1400&q=80" alt="" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=85"
+             alt="A warm, sunlit home interior" loading="lazy">
         <div class="acard__ov"></div>
         <div class="acard__body">
           <span class="mono-label mono-label--light">For home</span>
@@ -604,6 +614,10 @@
 
     <div class="scenarios">
       <article class="scard reveal">
+        <div class="scard__photo">
+          <img src="https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=1000&q=85"
+               alt="Technician fixing an AC unit" loading="lazy">
+        </div>
         <div class="scard__role">Small-business owner</div>
         <blockquote class="scard__quote">
           My office AC broke down. I need a technician tomorrow afternoon. Budget: SAR 300.
@@ -615,6 +629,10 @@
       </article>
 
       <article class="scard reveal" style="--d:120ms">
+        <div class="scard__photo">
+          <img src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=1000&q=85"
+               alt="A home being cleaned" loading="lazy">
+        </div>
         <div class="scard__role">Homeowner</div>
         <blockquote class="scard__quote">
           I need a cleaner every Saturday morning. Budget: SAR 200 per visit.
@@ -626,6 +644,10 @@
       </article>
 
       <article class="scard reveal" style="--d:240ms">
+        <div class="scard__photo">
+          <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=1000&q=85"
+               alt="A designer working on a logo" loading="lazy">
+        </div>
         <div class="scard__role">Startup founder</div>
         <blockquote class="scard__quote">
           I need a graphic designer for a logo project. Budget: SAR 1,500. Deadline: two weeks.
@@ -643,6 +665,10 @@
 <section class="section section--ink cta-wrap" id="waitlist-final">
   <div class="container">
     <div class="cta">
+      <figure class="cta__photo" aria-hidden="true">
+        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1600&q=85" alt="" loading="lazy">
+      </figure>
+
       <header class="sec-head sec-head--center cta__head">
         <span class="mono-label mono-label--light">N° 009 — Access</span>
         <h2 class="sec-title sec-title--light">
@@ -695,8 +721,8 @@
         <div class="footer__col">
           <h4>Product</h4>
           <a href="#how">How it works</a>
+          <a href="#workers">Featured workers</a>
           <a href="#features">Features</a>
-          <a href="#compare">Compare</a>
           <a href="#who">Who it's for</a>
         </div>
         <div class="footer__col">
