@@ -1,14 +1,13 @@
 /* ==========================================================
-   WORKMATCH — Interactions
+   WORKMATCH — Interactions v3
    ========================================================== */
 
-/* ---------- Nav scroll state ---------- */
 const nav = document.getElementById('nav');
-const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 40);
+const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 30);
 onScroll();
 window.addEventListener('scroll', onScroll, { passive: true });
 
-/* ---------- Scroll reveal ---------- */
+/* ---------- Reveal on scroll ---------- */
 const revealIO = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
@@ -17,65 +16,7 @@ const revealIO = new IntersectionObserver((entries) => {
     }
   });
 }, { threshold: 0.12, rootMargin: '0px 0px -80px 0px' });
-
 document.querySelectorAll('.reveal').forEach((el) => revealIO.observe(el));
-
-/* ---------- Cursor glow (desktop only) ---------- */
-const glow = document.querySelector('.cursor-glow');
-const isFine = window.matchMedia('(hover:hover) and (pointer:fine)').matches;
-if (glow && isFine) {
-  let mx = window.innerWidth / 2;
-  let my = window.innerHeight / 2;
-  let gx = mx, gy = my;
-
-  window.addEventListener('mousemove', (e) => {
-    mx = e.clientX;
-    my = e.clientY;
-  });
-
-  const loop = () => {
-    gx += (mx - gx) * 0.12;
-    gy += (my - gy) * 0.12;
-    glow.style.transform = `translate(${gx}px, ${gy}px) translate(-50%, -50%)`;
-    requestAnimationFrame(loop);
-  };
-  loop();
-}
-
-/* ---------- Bento spotlight hover ---------- */
-document.querySelectorAll('.bento__cell').forEach((cell) => {
-  cell.addEventListener('mousemove', (e) => {
-    const rect = cell.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width) * 100;
-    const y = ((e.clientY - rect.top) / rect.height) * 100;
-    cell.style.setProperty('--mx', `${x}%`);
-    cell.style.setProperty('--my', `${y}%`);
-  });
-});
-
-/* ---------- Animated number counters ---------- */
-const counters = document.querySelectorAll('[data-count]');
-const countIO = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (!entry.isIntersecting) return;
-    const el = entry.target;
-    const target = parseFloat(el.dataset.count);
-    const suffix = el.dataset.suffix || '';
-    const duration = 1400;
-    const start = performance.now();
-
-    const tick = (now) => {
-      const t = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - t, 3);
-      el.textContent = Math.round(target * eased) + suffix;
-      if (t < 1) requestAnimationFrame(tick);
-    };
-    requestAnimationFrame(tick);
-    countIO.unobserve(el);
-  });
-}, { threshold: 0.6 });
-
-counters.forEach((c) => countIO.observe(c));
 
 /* ---------- Waitlist forms ---------- */
 document.querySelectorAll('.js-waitlist').forEach((form) => {
@@ -86,21 +27,24 @@ document.querySelectorAll('.js-waitlist').forEach((form) => {
     const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 
     if (!valid) {
-      input.style.borderColor = '#FF6B35';
+      input.style.borderColor = '#C8451A';
       input.focus();
-      setTimeout(() => { input.style.borderColor = ''; }, 1800);
+      setTimeout(() => { input.style.borderColor = ''; }, 1600);
       return;
     }
 
+    const isLight = form.classList.contains('wl--light');
     form.innerHTML =
-      '<div class="form-success">' +
-        '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>' +
+      '<div class="form-success" style="' +
+        (isLight ? 'background:rgba(76,139,94,.14);border-color:rgba(76,139,94,.35);color:#9DDBAA;' : '') +
+      '">' +
+        '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>' +
         "You're on the list — we'll be in touch soon." +
       '</div>';
   });
 });
 
-/* ---------- Smooth anchor scroll with fixed nav offset ---------- */
+/* ---------- Smooth anchor scroll ---------- */
 document.querySelectorAll('a[href^="#"]').forEach((link) => {
   link.addEventListener('click', (e) => {
     const id = link.getAttribute('href');
@@ -108,18 +52,37 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
     const target = document.querySelector(id);
     if (!target) return;
     e.preventDefault();
-    const top = target.getBoundingClientRect().top + window.scrollY - 90;
+    const top = target.getBoundingClientRect().top + window.scrollY - 100;
     window.scrollTo({ top, behavior: 'smooth' });
   });
 });
 
-/* ---------- Pause marquee when off-screen (perf) ---------- */
-const marquee = document.querySelector('.marquee__track');
-if (marquee) {
-  const mIO = new IntersectionObserver((entries) => {
+/* ---------- Pause marquees when off-screen (perf) ---------- */
+const marquees = [
+  document.querySelector('.ticker__row'),
+  document.querySelector('.band__track')
+].filter(Boolean);
+
+marquees.forEach((el) => {
+  const io = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
-      marquee.style.animationPlayState = entry.isIntersecting ? 'running' : 'paused';
+      el.style.animationPlayState = entry.isIntersecting ? 'running' : 'paused';
     });
   }, { threshold: 0 });
-  mIO.observe(marquee.parentElement);
+  io.observe(el.parentElement);
+});
+
+/* ---------- Lazy-load fallback for older browsers ---------- */
+if ('loading' in HTMLImageElement.prototype) {
+  // Native lazy loading supported — nothing to do.
+} else {
+  const lazyIO = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      const img = entry.target;
+      if (img.dataset.src) img.src = img.dataset.src;
+      lazyIO.unobserve(img);
+    });
+  }, { rootMargin: '200px' });
+  document.querySelectorAll('img[data-src]').forEach((img) => lazyIO.observe(img));
 }
