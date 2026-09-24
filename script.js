@@ -1,22 +1,45 @@
 /* ==========================================================
-   WORKMATCH — Interactions v3
+   WORKMATCH — Interactions v5
    ========================================================== */
 
+/* ---------- Nav scroll state ---------- */
 const nav = document.getElementById('nav');
-const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 30);
-onScroll();
-window.addEventListener('scroll', onScroll, { passive: true });
+if (nav) {
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 30);
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+}
 
-/* ---------- Reveal on scroll ---------- */
-const revealIO = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('in');
-      revealIO.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.12, rootMargin: '0px 0px -80px 0px' });
-document.querySelectorAll('.reveal').forEach((el) => revealIO.observe(el));
+/* ---------- Scroll progress bar ---------- */
+const progressBar = document.getElementById('progressBar');
+if (progressBar) {
+  const updateProgress = () => {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = max > 0 ? (window.scrollY / max) * 100 : 0;
+    progressBar.style.width = pct + '%';
+  };
+  updateProgress();
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  window.addEventListener('resize', updateProgress);
+}
+
+/* ---------- Chapter dot nav — active state ---------- */
+const chapLinks = document.querySelectorAll('.chapnav a');
+const sections = document.querySelectorAll('section[data-section]');
+
+if (chapLinks.length && sections.length) {
+  const setActive = (id) => {
+    chapLinks.forEach((a) => a.classList.toggle('active', a.dataset.section === id));
+  };
+
+  const sectionIO = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) setActive(entry.target.dataset.section);
+    });
+  }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
+
+  sections.forEach((s) => sectionIO.observe(s));
+}
 
 /* ---------- Waitlist forms ---------- */
 document.querySelectorAll('.js-waitlist').forEach((form) => {
@@ -44,7 +67,7 @@ document.querySelectorAll('.js-waitlist').forEach((form) => {
   });
 });
 
-/* ---------- Smooth anchor scroll ---------- */
+/* ---------- Smooth anchor scroll with nav offset ---------- */
 document.querySelectorAll('a[href^="#"]').forEach((link) => {
   link.addEventListener('click', (e) => {
     const id = link.getAttribute('href');
@@ -52,37 +75,7 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
     const target = document.querySelector(id);
     if (!target) return;
     e.preventDefault();
-    const top = target.getBoundingClientRect().top + window.scrollY - 100;
+    const top = target.getBoundingClientRect().top + window.scrollY - 90;
     window.scrollTo({ top, behavior: 'smooth' });
   });
 });
-
-/* ---------- Pause marquees when off-screen (perf) ---------- */
-const marquees = [
-  document.querySelector('.ticker__row'),
-  document.querySelector('.band__track')
-].filter(Boolean);
-
-marquees.forEach((el) => {
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      el.style.animationPlayState = entry.isIntersecting ? 'running' : 'paused';
-    });
-  }, { threshold: 0 });
-  io.observe(el.parentElement);
-});
-
-/* ---------- Lazy-load fallback for older browsers ---------- */
-if ('loading' in HTMLImageElement.prototype) {
-  // Native lazy loading supported — nothing to do.
-} else {
-  const lazyIO = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
-      const img = entry.target;
-      if (img.dataset.src) img.src = img.dataset.src;
-      lazyIO.unobserve(img);
-    });
-  }, { rootMargin: '200px' });
-  document.querySelectorAll('img[data-src]').forEach((img) => lazyIO.observe(img));
-}
