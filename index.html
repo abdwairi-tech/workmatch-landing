@@ -4,170 +4,124 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>WorkMatch — Tell Us What You Need. We'll Find the Right Worker.</title>
-<meta name="description" content="WorkMatch turns a plain-language job description into a shortlist of trusted local workers — in minutes, not days." />
+<meta name="description" content="Describe a job in plain language. Get a shortlist of trusted local workers in minutes." />
 <meta name="theme-color" content="#F6F2EB" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<div class="paper" aria-hidden="true"></div>
+<!-- Scroll progress bar -->
+<div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+<!-- Chapter dot nav (right side, desktop only) -->
+<nav class="chapnav" aria-label="Section navigation">
+  <a href="#s01" data-section="s01" aria-label="Section 1 — Intro"></a>
+  <a href="#s02" data-section="s02" aria-label="Section 2 — Problem"></a>
+  <a href="#s03" data-section="s03" aria-label="Section 3 — Workers"></a>
+  <a href="#s04" data-section="s04" aria-label="Section 4 — Process"></a>
+  <a href="#s05" data-section="s05" aria-label="Section 5 — Capabilities"></a>
+  <a href="#s06" data-section="s06" aria-label="Section 6 — Comparison"></a>
+  <a href="#s07" data-section="s07" aria-label="Section 7 — Audience"></a>
+  <a href="#s08" data-section="s08" aria-label="Section 8 — Scenarios"></a>
+  <a href="#s09" data-section="s09" aria-label="Section 9 — Join"></a>
+</nav>
 
 <!-- ============ NAV ============ -->
 <header class="nav" id="nav">
   <div class="nav__inner">
     <a href="#" class="brand">
       <span class="brand__mark" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M12 2 4 6v6c0 5 3.4 9.2 8 10 4.6-.8 8-5 8-10V6l-8-4Z"/>
           <path d="m9 12 2 2 4-4"/>
         </svg>
       </span>
       <span class="brand__name">WorkMatch</span>
-      <span class="brand__tag">BETA</span>
     </a>
-
     <nav class="nav__links">
-      <a href="#how"><span>01</span> How it works</a>
-      <a href="#workers"><span>02</span> Workers</a>
-      <a href="#features"><span>03</span> Features</a>
-      <a href="#who"><span>04</span> Who it's for</a>
+      <a href="#s04">Process</a>
+      <a href="#s03">Workers</a>
+      <a href="#s06">Compare</a>
     </nav>
-
-    <a href="#waitlist" class="btn btn--ink btn--sm">
-      Join waitlist
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-    </a>
+    <a href="#s09" class="btn btn--ink btn--sm">Join waitlist</a>
   </div>
 </header>
 
-<!-- ============ HERO ============ -->
-<section class="hero">
+<!-- ============ 01 — HERO ============ -->
+<section class="s s--light s--hero" id="s01" data-section="s01">
   <div class="container">
-    <div class="hero__meta">
-      <span class="mono-label">N° 001 — The product</span>
-      <span class="mono-label">AI · Local · Trusted</span>
-    </div>
+    <div class="chapter"><span>01</span> The product</div>
 
     <div class="hero__grid">
       <div class="hero__copy">
+        <span class="pill"><span class="pill__dot"></span>Pilot launching in Riyadh</span>
+
         <h1 class="hero__title">
-          Tell us what
-          <span class="hero__title-em">you need.</span><br>
-          We'll find the right worker.
+          Describe the job.<br>
+          <span class="accent">Get the right worker.</span>
         </h1>
 
         <p class="hero__lead">
-          WorkMatch reads a plain-language job description and returns a shortlist of trusted local workers —
-          matched on skill, location, price, availability and ratings. In minutes, not days.
+          WorkMatch reads a plain-language request and returns a shortlist of
+          verified local workers — matched on skill, price, location, availability
+          and ratings. In minutes, not days.
         </p>
 
-        <form class="wl js-waitlist" id="waitlist" novalidate>
+        <form class="wl js-waitlist" novalidate>
           <div class="wl__field">
             <input type="email" name="email" placeholder="you@company.com" required aria-label="Email address">
           </div>
-          <button type="submit" class="btn btn--ink">
-            Request access
+          <button type="submit" class="btn btn--accent">
+            Get early access
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </button>
         </form>
 
         <p class="wl-note">
-          <span class="dot"></span>
-          First matching experience free during pilot. Riyadh only.
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          First matching experience free during the pilot.
         </p>
-
-        <div class="hero__ledger">
-          <div class="ledger__cell">
-            <span class="ledger__n">5</span>
-            <span class="ledger__l">Matching factors</span>
-          </div>
-          <div class="ledger__cell">
-            <span class="ledger__n">60<span class="ledger__s">s</span></span>
-            <span class="ledger__l">To a shortlist</span>
-          </div>
-          <div class="ledger__cell">
-            <span class="ledger__n">100<span class="ledger__s">%</span></span>
-            <span class="ledger__l">Payment protected</span>
-          </div>
-        </div>
       </div>
 
-      <!-- Editorial image + floating product card -->
       <div class="hero__visual">
         <figure class="hero__photo">
-          <img
-            src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1400&q=85"
-            alt="A local technician and business owner reviewing a job together"
-            loading="eager" />
-          <figcaption class="hero__photo-cap">
-            <span class="mono-label">Riyadh · 09:41</span>
-            <span>Verified worker meets verified client.</span>
-          </figcaption>
+          <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1400&q=85" alt="Business owner meeting a local technician" loading="eager" />
         </figure>
 
-        <div class="surface surface--float">
-          <div class="surface__chrome">
-            <span class="chrome-dot"></span>
-            <span class="chrome-dot"></span>
-            <span class="chrome-dot"></span>
-            <span class="chrome-url">workmatch.ai</span>
-            <span class="chrome-tag">LIVE</span>
+        <div class="matchcard">
+          <div class="matchcard__bar">
+            <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            <span class="matchcard__url">workmatch.ai / request</span>
           </div>
-
-          <div class="surface__body">
-            <div class="match-head">
-              <div class="match-head__left">
-                <span class="mono-label">Top matches</span>
-                <span class="match-head__count">3 of 1,248</span>
-              </div>
-              <span class="match-head__status"><span class="pulse"></span>matched</span>
+          <div class="matchcard__body">
+            <div class="matchcard__req">
+              <span class="mono">Your request</span>
+              <p>"I need an AC technician tomorrow afternoon. Budget: SAR 300."</p>
             </div>
-
-            <div class="matches">
-              <div class="worker">
-                <div class="worker__av">
-                  <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=200&q=85" alt="" loading="lazy">
-                </div>
-                <div class="worker__info">
-                  <div class="worker__name">
-                    Faisal A.
-                    <svg class="check" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 4 6v6c0 5 3.4 9.2 8 10 4.6-.8 8-5 8-10V6l-8-4Zm-1 13-3-3 1.4-1.4L11 12.2l4.6-4.6L17 9l-6 6Z"/></svg>
-                  </div>
-                  <div class="worker__meta">★ 4.9 · 214 jobs</div>
-                </div>
-                <div class="worker__rate"><b>SAR 280</b><span>visit</span></div>
+            <div class="matchcard__label">
+              <span>3 of 1,248</span>
+              <span class="status"><i></i>Live</span>
+            </div>
+            <div class="matchcard__list">
+              <div class="mini">
+                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=120&q=85" alt="">
+                <div class="mini__meta"><strong>Faisal A.</strong><span>★ 4.9 · 214</span></div>
+                <span class="mini__rate">SAR 280</span>
               </div>
-
-              <div class="worker">
-                <div class="worker__av">
-                  <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=200&q=85" alt="" loading="lazy">
-                </div>
-                <div class="worker__info">
-                  <div class="worker__name">
-                    Noura S.
-                    <svg class="check" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 4 6v6c0 5 3.4 9.2 8 10 4.6-.8 8-5 8-10V6l-8-4Zm-1 13-3-3 1.4-1.4L11 12.2l4.6-4.6L17 9l-6 6Z"/></svg>
-                  </div>
-                  <div class="worker__meta">★ 4.8 · 137 jobs</div>
-                </div>
-                <div class="worker__rate"><b>SAR 300</b><span>visit</span></div>
+              <div class="mini">
+                <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=120&q=85" alt="">
+                <div class="mini__meta"><strong>Noura S.</strong><span>★ 4.8 · 137</span></div>
+                <span class="mini__rate">SAR 300</span>
               </div>
-
-              <div class="worker">
-                <div class="worker__av">
-                  <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=200&q=85" alt="" loading="lazy">
-                </div>
-                <div class="worker__info">
-                  <div class="worker__name">
-                    Omar K.
-                    <svg class="check" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 4 6v6c0 5 3.4 9.2 8 10 4.6-.8 8-5 8-10V6l-8-4Zm-1 13-3-3 1.4-1.4L11 12.2l4.6-4.6L17 9l-6 6Z"/></svg>
-                  </div>
-                  <div class="worker__meta">★ 4.7 · 98 jobs</div>
-                </div>
-                <div class="worker__rate"><b>SAR 260</b><span>visit</span></div>
+              <div class="mini">
+                <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=120&q=85" alt="">
+                <div class="mini__meta"><strong>Omar K.</strong><span>★ 4.7 · 98</span></div>
+                <span class="mini__rate">SAR 260</span>
               </div>
             </div>
           </div>
@@ -178,240 +132,187 @@
 </section>
 
 <!-- ============ TICKER ============ -->
-<div class="ticker">
-  <div class="ticker__inner">
-    <div class="ticker__row">
-      <span>AC &amp; maintenance</span><em>—</em>
-      <span>Cleaning</span><em>—</em>
-      <span>Electrical</span><em>—</em>
-      <span>Plumbing</span><em>—</em>
-      <span>IT support</span><em>—</em>
-      <span>Designers</span><em>—</em>
-      <span>Accountants</span><em>—</em>
-      <span>Drivers</span><em>—</em>
-      <span>Marketing</span><em>—</em>
-      <span>Home services</span><em>—</em>
-      <span>AC &amp; maintenance</span><em>—</em>
-      <span>Cleaning</span><em>—</em>
-      <span>Electrical</span><em>—</em>
-      <span>Plumbing</span><em>—</em>
-      <span>IT support</span><em>—</em>
-      <span>Designers</span><em>—</em>
-      <span>Accountants</span><em>—</em>
-      <span>Drivers</span><em>—</em>
-      <span>Marketing</span><em>—</em>
-      <span>Home services</span><em>—</em>
-    </div>
+<div class="ticker" aria-hidden="true">
+  <div class="ticker__track">
+    <span>AC &amp; maintenance</span><i>•</i>
+    <span>Cleaning</span><i>•</i>
+    <span>Electrical</span><i>•</i>
+    <span>Plumbing</span><i>•</i>
+    <span>IT support</span><i>•</i>
+    <span>Designers</span><i>•</i>
+    <span>Accountants</span><i>•</i>
+    <span>Drivers</span><i>•</i>
+    <span>Marketing</span><i>•</i>
+    <span>Home services</span><i>•</i>
+    <span>AC &amp; maintenance</span><i>•</i>
+    <span>Cleaning</span><i>•</i>
+    <span>Electrical</span><i>•</i>
+    <span>Plumbing</span><i>•</i>
+    <span>IT support</span><i>•</i>
+    <span>Designers</span><i>•</i>
+    <span>Accountants</span><i>•</i>
+    <span>Drivers</span><i>•</i>
+    <span>Marketing</span><i>•</i>
+    <span>Home services</span><i>•</i>
   </div>
 </div>
 
-<!-- ============ PROBLEM ============ -->
-<section class="section">
+<!-- ============ 02 — PROBLEM (dark) ============ -->
+<section class="s s--dark s--compact" id="s02" data-section="s02">
   <div class="container">
-    <header class="sec-head">
-      <span class="mono-label">N° 002 — The problem</span>
-      <h2 class="sec-title">
-        Finding a reliable worker
-        <em>shouldn't take</em> all week.
-      </h2>
-    </header>
+    <div class="chapter chapter--light"><span>02</span> The problem</div>
 
-    <div class="problem">
-      <div class="problem__media reveal">
-        <!-- Photo collage: three shots that read like a documentary -->
-        <div class="collage">
-          <figure class="collage__a">
-            <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1000&q=85"
-                 alt="A technician mid-task" loading="lazy">
-            <figcaption><span class="mono-label">Fig. 01</span>The right fit matters.</figcaption>
-          </figure>
-          <figure class="collage__b">
-            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1000&q=85"
-                 alt="A small business team" loading="lazy">
-          </figure>
-          <figure class="collage__c">
-            <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1000&q=85"
-                 alt="A home service in progress" loading="lazy">
-            <figcaption><span class="mono-label">Fig. 02</span>Trust is not a filter.</figcaption>
-          </figure>
-        </div>
-      </div>
+    <h2 class="display">
+      Finding a reliable worker<br>
+      <span class="accent-light">shouldn't take all week.</span>
+    </h2>
 
-      <div class="problem__body reveal">
-        <p class="problem__lead">
-          Customers scroll through dozens of profiles, make several calls, compare prices,
-          check availability — and still may not know who to choose.
-        </p>
-
-        <ol class="problem__list">
-          <li><span>01</span>Endless scrolling through profiles that don't fit</li>
-          <li><span>02</span>Repeated calls just to check who's actually free</li>
-          <li><span>03</span>Unclear pricing with no fair way to compare</li>
-          <li><span>04</span>No confidence about trust, quality or reliability</li>
-        </ol>
-
-        <p class="problem__pivot">
-          WorkMatch changes the process from
-          <em>searching</em> to <em>matching</em>.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ FEATURED WORKERS (NEW) ============ -->
-<section class="section section--rule workers" id="workers">
-  <div class="container">
-    <header class="sec-head sec-head--split">
-      <div>
-        <span class="mono-label">N° 003 — Real people</span>
-        <h2 class="sec-title">
-          Meet a few of
-          <em>the verified.</em>
-        </h2>
-      </div>
-      <p class="sec-lead">
-        Every worker on WorkMatch has been identity-checked, reference-verified, and rated
-        by real customers. These are the kinds of people you'll meet in the app.
+    <div class="problem__grid">
+      <p class="problem__lead">
+        You scroll through dozens of profiles, make several calls, compare prices,
+        check availability — and still don't know who to trust.
       </p>
-    </header>
 
-    <div class="workers__grid">
-      <article class="wcard reveal">
-        <div class="wcard__photo">
-          <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=85"
-               alt="Electrical technician" loading="lazy">
-          <span class="wcard__badge">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 4 6v6c0 5 3.4 9.2 8 10 4.6-.8 8-5 8-10V6l-8-4Zm-1 13-3-3 1.4-1.4L11 12.2l4.6-4.6L17 9l-6 6Z"/></svg>
-            Verified
-          </span>
-        </div>
-        <div class="wcard__body">
-          <div class="wcard__row">
-            <h3>Faisal Al-Harbi</h3>
-            <span class="wcard__rate">★ 4.9</span>
-          </div>
-          <p class="wcard__role">Electrical &amp; AC technician · Riyadh</p>
-          <p class="wcard__meta">214 jobs · 6 yrs · Available tomorrow</p>
-        </div>
-      </article>
-
-      <article class="wcard reveal" style="--d:80ms">
-        <div class="wcard__photo">
-          <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=800&q=85"
-               alt="Interior and home cleaning specialist" loading="lazy">
-          <span class="wcard__badge">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 4 6v6c0 5 3.4 9.2 8 10 4.6-.8 8-5 8-10V6l-8-4Zm-1 13-3-3 1.4-1.4L11 12.2l4.6-4.6L17 9l-6 6Z"/></svg>
-            Verified
-          </span>
-        </div>
-        <div class="wcard__body">
-          <div class="wcard__row">
-            <h3>Noura Saleh</h3>
-            <span class="wcard__rate">★ 4.8</span>
-          </div>
-          <p class="wcard__role">Home &amp; office cleaning · Riyadh</p>
-          <p class="wcard__meta">137 jobs · 4 yrs · Recurring OK</p>
-        </div>
-      </article>
-
-      <article class="wcard reveal" style="--d:160ms">
-        <div class="wcard__photo">
-          <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=800&q=85"
-               alt="Graphic designer at work" loading="lazy">
-          <span class="wcard__badge">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 4 6v6c0 5 3.4 9.2 8 10 4.6-.8 8-5 8-10V6l-8-4Zm-1 13-3-3 1.4-1.4L11 12.2l4.6-4.6L17 9l-6 6Z"/></svg>
-            Verified
-          </span>
-        </div>
-        <div class="wcard__body">
-          <div class="wcard__row">
-            <h3>Omar Khalid</h3>
-            <span class="wcard__rate">★ 4.7</span>
-          </div>
-          <p class="wcard__role">Brand &amp; graphic designer · Remote</p>
-          <p class="wcard__meta">98 projects · 8 yrs · Milestone pay</p>
-        </div>
-      </article>
-
-      <article class="wcard reveal" style="--d:240ms">
-        <div class="wcard__photo">
-          <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=800&q=85"
-               alt="Business consultant" loading="lazy">
-          <span class="wcard__badge">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 4 6v6c0 5 3.4 9.2 8 10 4.6-.8 8-5 8-10V6l-8-4Zm-1 13-3-3 1.4-1.4L11 12.2l4.6-4.6L17 9l-6 6Z"/></svg>
-            Verified
-          </span>
-        </div>
-        <div class="wcard__body">
-          <div class="wcard__row">
-            <h3>Yousef Mansour</h3>
-            <span class="wcard__rate">★ 4.9</span>
-          </div>
-          <p class="wcard__role">Accounting &amp; finance · Riyadh</p>
-          <p class="wcard__meta">61 clients · 12 yrs · Monthly retainers</p>
-        </div>
-      </article>
+      <ul class="problem__list">
+        <li><span>01</span>Endless scrolling through profiles that don't fit</li>
+        <li><span>02</span>Calls and messages just to check who's free</li>
+        <li><span>03</span>Unclear pricing with no fair way to compare</li>
+        <li><span>04</span>No confidence about quality or reliability</li>
+      </ul>
     </div>
 
-    <p class="workers__note reveal">
-      <span class="dot"></span>
-      Verification in progress — a small pilot cohort launches in Riyadh first.
+    <p class="problem__pivot">
+      So we changed the process from <em>searching</em> to <em>matching</em>.
     </p>
   </div>
 </section>
 
-<!-- ============ HOW IT WORKS ============ -->
-<section class="section" id="how">
+<!-- ============ 03 — WORKERS ============ -->
+<section class="s s--light s--roomy" id="s03" data-section="s03">
   <div class="container">
-    <header class="sec-head sec-head--split">
-      <div>
-        <span class="mono-label">N° 004 — Process</span>
-        <h2 class="sec-title">
-          Three steps.
-          <em>That's the whole thing.</em>
-        </h2>
-      </div>
-      <p class="sec-lead">
-        Describe the job. Let AI find suitable workers. Choose the one that fits —
-        you always make the final call.
+    <div class="chapter"><span>03</span> Meet the verified</div>
+
+    <div class="head-split">
+      <h2 class="display">
+        Real people.<br>
+        <span class="accent">Checked, rated, ready.</span>
+      </h2>
+      <p class="head-split__lead">
+        Every worker on WorkMatch has been identity-checked, reference-verified,
+        and rated by real customers.
       </p>
-    </header>
+    </div>
 
-    <ol class="steps">
-      <li class="step reveal">
-        <div class="step__num">01</div>
-        <h3>Describe the job — not the worker</h3>
-        <p>Explain your need in plain language. No categories, no filters, no jargon to learn.</p>
-        <div class="step__quote">
-          "I need a cleaner for my office every Saturday. Budget: SAR 200 per visit."
+    <div class="workers__grid">
+      <article class="wcard">
+        <figure class="wcard__photo">
+          <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=85" alt="Faisal, electrical technician" loading="lazy">
+          <span class="wcard__badge">Verified</span>
+        </figure>
+        <div class="wcard__body">
+          <div class="wcard__row"><h3>Faisal A.</h3><span class="wcard__rate">★ 4.9</span></div>
+          <p class="wcard__role">AC &amp; electrical technician · Riyadh</p>
+          <p class="wcard__meta">214 jobs · 6 yrs</p>
         </div>
-      </li>
+      </article>
 
-      <li class="step reveal" style="--d:120ms">
-        <div class="step__num">02</div>
-        <h3>AI matches on five factors</h3>
-        <p>Skill, location, budget, availability and ratings — weighed together into one focused shortlist.</p>
-        <div class="step__tags">
-          <span>Skill</span><span>Location</span><span>Budget</span><span>Time</span><span>Rating</span>
+      <article class="wcard">
+        <figure class="wcard__photo">
+          <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=800&q=85" alt="Noura, cleaning specialist" loading="lazy">
+          <span class="wcard__badge">Verified</span>
+        </figure>
+        <div class="wcard__body">
+          <div class="wcard__row"><h3>Noura S.</h3><span class="wcard__rate">★ 4.8</span></div>
+          <p class="wcard__role">Home &amp; office cleaning · Riyadh</p>
+          <p class="wcard__meta">137 jobs · 4 yrs</p>
         </div>
-      </li>
+      </article>
 
-      <li class="step reveal" style="--d:240ms">
-        <div class="step__num">03</div>
-        <h3>Compare and book with confidence</h3>
-        <p>See price, availability, skills and ratings side by side. Funds held in escrow until you approve.</p>
-        <div class="step__note">
-          <span class="dot"></span>
-          You make the final call — always.
+      <article class="wcard">
+        <figure class="wcard__photo">
+          <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=800&q=85" alt="Omar, graphic designer" loading="lazy">
+          <span class="wcard__badge">Verified</span>
+        </figure>
+        <div class="wcard__body">
+          <div class="wcard__row"><h3>Omar K.</h3><span class="wcard__rate">★ 4.7</span></div>
+          <p class="wcard__role">Brand &amp; graphic designer · Remote</p>
+          <p class="wcard__meta">98 projects · 8 yrs</p>
         </div>
-      </li>
-    </ol>
+      </article>
+
+      <article class="wcard">
+        <figure class="wcard__photo">
+          <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=800&q=85" alt="Yousef, accountant" loading="lazy">
+          <span class="wcard__badge">Verified</span>
+        </figure>
+        <div class="wcard__body">
+          <div class="wcard__row"><h3>Yousef M.</h3><span class="wcard__rate">★ 4.9</span></div>
+          <p class="wcard__role">Accounting &amp; finance · Riyadh</p>
+          <p class="wcard__meta">61 clients · 12 yrs</p>
+        </div>
+      </article>
+    </div>
+
+    <p class="workers__note">Verification in progress — a small pilot cohort launches in Riyadh first.</p>
   </div>
 </section>
 
-<!-- ============ PHOTO BAND (NEW) ============ -->
-<section class="band" aria-hidden="true">
+<!-- ============ 04 — PROCESS ============ -->
+<section class="s s--light s--roomy" id="s04" data-section="s04">
+  <div class="container">
+    <div class="chapter"><span>04</span> Process</div>
+
+    <h2 class="display">
+      Three steps.<br>
+      <span class="accent">That's the whole thing.</span>
+    </h2>
+
+    <div class="hstep__list">
+
+      <article class="hstep">
+        <div class="hstep__num">01</div>
+        <div class="hstep__content">
+          <h3>Describe the job in your own words</h3>
+          <p>No categories. No filters. Just say what you need — the way you'd say it to a friend.</p>
+          <div class="hstep__quote">"Office AC broke down. Need someone tomorrow PM. Budget: SAR 300."</div>
+        </div>
+        <figure class="hstep__photo">
+          <img src="https://images.unsplash.com/photo-1587560699334-cc4ff634909a?auto=format&fit=crop&w=900&q=85" alt="Someone typing a request on their phone" loading="lazy">
+        </figure>
+      </article>
+
+      <article class="hstep hstep--flip">
+        <div class="hstep__num">02</div>
+        <div class="hstep__content">
+          <h3>AI matches on five factors</h3>
+          <p>Skill, location, budget, availability and ratings weighed together — scanning every verified worker in your city, then narrowing to a shortlist.</p>
+          <div class="hstep__tags">
+            <span>Skill</span><span>Location</span><span>Budget</span><span>Time</span><span>Rating</span>
+          </div>
+        </div>
+        <figure class="hstep__photo">
+          <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=900&q=85" alt="Team reviewing matches" loading="lazy">
+        </figure>
+      </article>
+
+      <article class="hstep">
+        <div class="hstep__num">03</div>
+        <div class="hstep__content">
+          <h3>Compare, book, pay securely</h3>
+          <p>See price, availability, skills and ratings side by side. Funds held in escrow until you approve the work — protecting both sides.</p>
+          <div class="hstep__note"><i></i>You make the final call — always.</div>
+        </div>
+        <figure class="hstep__photo">
+          <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=900&q=85" alt="Client and worker shaking hands" loading="lazy">
+        </figure>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ PHOTO BAND ============ -->
+<div class="band" aria-hidden="true">
   <div class="band__track">
     <figure><img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=900&q=80" alt="" loading="lazy"></figure>
     <figure><img src="https://images.unsplash.com/photo-1585421514738-01798e348b17?auto=format&fit=crop&w=900&q=80" alt="" loading="lazy"></figure>
@@ -427,61 +328,54 @@
     <figure><img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=900&q=80" alt="" loading="lazy"></figure>
     <figure><img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=900&q=80" alt="" loading="lazy"></figure>
   </div>
-</section>
+</div>
 
-<!-- ============ FEATURES BENTO ============ -->
-<section class="section" id="features">
+<!-- ============ 05 — CAPABILITIES ============ -->
+<section class="s s--light s--roomy" id="s05" data-section="s05">
   <div class="container">
-    <header class="sec-head sec-head--split">
-      <div>
-        <span class="mono-label">N° 005 — Capabilities</span>
-        <h2 class="sec-title">
-          Everything you need
-          <em>to hire well.</em>
-        </h2>
-      </div>
-      <p class="sec-lead">
-        Built for the small things — the AC that broke, the office that needs cleaning,
-        the pitch deck that needs design.
+    <div class="chapter"><span>05</span> Capabilities</div>
+
+    <div class="head-split">
+      <h2 class="display">
+        Everything you need<br>
+        <span class="accent">to hire well.</span>
+      </h2>
+      <p class="head-split__lead">
+        Built for the small things — the AC that broke, the office that needs
+        cleaning, the deck that needs design.
       </p>
-    </header>
+    </div>
 
     <div class="bento">
-      <article class="bento__cell bento__cell--lg reveal">
+      <article class="bento__cell bento__cell--feature">
         <div class="bento__icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/></svg>
         </div>
-        <span class="mono-label">Core capability</span>
         <h3>Describe the job, not the worker</h3>
         <p>You describe the problem in your own words. WorkMatch does the translation into skill, timing, budget and location — then acts on it.</p>
-
         <div class="bento__chat">
-          <div class="chat-row">
-            <div class="chat-bubble">"Office AC broke down. Need someone tomorrow afternoon."</div>
-          </div>
-          <div class="chat-row chat-row--right">
-            <div class="chat-bubble chat-bubble--reply"><span class="pulse"></span>Scanning 1,248 verified workers…</div>
-          </div>
+          <div class="chat-row"><div class="chat-bubble">"Office AC broke down. Need someone tomorrow afternoon."</div></div>
+          <div class="chat-row chat-row--right"><div class="chat-bubble chat-bubble--reply"><span class="pulse"></span>Scanning 1,248 workers…</div></div>
         </div>
       </article>
 
-      <article class="bento__cell reveal" style="--d:80ms">
+      <article class="bento__cell">
         <div class="bento__icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg>
         </div>
         <h3>Five-factor matching</h3>
-        <p>Skill, location, budget, availability and ratings — weighed into one shortlist.</p>
+        <p>Skill, location, budget, availability and ratings weighed into one shortlist.</p>
       </article>
 
-      <article class="bento__cell reveal" style="--d:160ms">
+      <article class="bento__cell">
         <div class="bento__icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.4 9.2 8 10 4.6-.8 8-5 8-10V6l-8-4Z"/><path d="m9 12 2 2 4-4"/></svg>
         </div>
         <h3>Verified workers</h3>
-        <p>Identity, qualifications, references and a reliability score — checked before you book.</p>
+        <p>Identity, references, qualifications — checked before you book.</p>
       </article>
 
-      <article class="bento__cell reveal" style="--d:240ms">
+      <article class="bento__cell">
         <div class="bento__icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="13" rx="2.5"/><path d="M2 10h20M6 15h3"/></svg>
         </div>
@@ -489,113 +383,99 @@
         <p>Split bigger projects. Release funds only after you approve each stage.</p>
       </article>
 
-      <article class="bento__cell reveal" style="--d:320ms">
+      <article class="bento__cell">
         <div class="bento__icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
         </div>
         <h3>Local first</h3>
-        <p>Workers prioritised in your city or region — for faster comms and face-to-face when it matters.</p>
+        <p>Workers prioritised in your city for faster comms and face-to-face when it matters.</p>
       </article>
     </div>
   </div>
 </section>
 
-<!-- ============ COMPARE ============ -->
-<section class="section section--ink" id="compare">
+<!-- ============ 06 — COMPARISON (dark) ============ -->
+<section class="s s--dark s--roomy" id="s06" data-section="s06">
   <div class="container">
-    <header class="sec-head sec-head--split">
-      <div>
-        <span class="mono-label">N° 006 — Comparison</span>
-        <h2 class="sec-title">
-          Traditional platforms
-          <em>make you search.</em><br>
-          We make you choose.
-        </h2>
-      </div>
-      <p class="sec-lead">
+    <div class="chapter chapter--light"><span>06</span> Comparison</div>
+
+    <div class="head-split">
+      <h2 class="display">
+        Traditional platforms<br>
+        <span class="accent-light">make you search.</span><br>
+        We make you choose.
+      </h2>
+      <p class="head-split__lead head-split__lead--light">
         Post a project. Wait for bids. Compare dozens of profiles. Guess who to trust.
         WorkMatch reverses every one of those steps.
       </p>
-    </header>
+    </div>
 
-    <div class="compare">
+    <div class="compare__grid">
       <div class="compare__col compare__col--old">
-        <div class="compare__head">
-          <span class="mono-label mono-label--faint">Old way</span>
-          <h4>Traditional platforms</h4>
-        </div>
+        <h4>The old way</h4>
         <ul>
-          <li><span class="mark mark--x">✕</span>You search</li>
-          <li><span class="mark mark--x">✕</span>Hundreds of profiles</li>
-          <li><span class="mark mark--x">✕</span>Anyone can bid</li>
-          <li><span class="mark mark--x">✕</span>Payment uncertainty</li>
-          <li><span class="mark mark--x">✕</span>Contact many people</li>
-          <li><span class="mark mark--x">✕</span>Unclear availability</li>
-          <li><span class="mark mark--x">✕</span>Difficult comparison</li>
+          <li>You search</li>
+          <li>Hundreds of profiles</li>
+          <li>Anyone can bid</li>
+          <li>Payment uncertainty</li>
+          <li>Contact many people</li>
+          <li>Unclear availability</li>
         </ul>
       </div>
 
       <div class="compare__col compare__col--new">
-        <div class="compare__head">
-          <span class="mono-label">New way</span>
-          <h4>WorkMatch</h4>
-        </div>
+        <h4>WorkMatch</h4>
         <ul>
-          <li><span class="mark mark--v">✓</span>You describe</li>
-          <li><span class="mark mark--v">✓</span>A focused shortlist</li>
-          <li><span class="mark mark--v">✓</span>Verified workers only</li>
-          <li><span class="mark mark--v">✓</span>Funds held until you confirm</li>
-          <li><span class="mark mark--v">✓</span>Contact suitable matches</li>
-          <li><span class="mark mark--v">✓</span>Matched by availability</li>
-          <li><span class="mark mark--v">✓</span>Everything in one place</li>
+          <li>You describe</li>
+          <li>A focused shortlist</li>
+          <li>Verified workers only</li>
+          <li>Funds held until confirmed</li>
+          <li>Contact suitable matches</li>
+          <li>Matched by availability</li>
         </ul>
       </div>
     </div>
 
-    <p class="compare__foot">
-      Result: <em>hire faster, compare with confidence,</em> and remove the uncertainty of finding local workers.
-    </p>
+    <p class="compare__foot">Result: hire faster, compare with confidence, remove the uncertainty.</p>
   </div>
 </section>
 
-<!-- ============ AUDIENCE ============ -->
-<section class="section" id="who">
+<!-- ============ 07 — AUDIENCE ============ -->
+<section class="s s--light s--roomy" id="s07" data-section="s07">
   <div class="container">
-    <header class="sec-head">
-      <span class="mono-label">N° 007 — Audience</span>
-      <h2 class="sec-title">
-        Built for businesses
-        <em>and</em> households alike.
-      </h2>
-    </header>
+    <div class="chapter"><span>07</span> Audience</div>
+
+    <h2 class="display">
+      Built for businesses<br>
+      <span class="accent">and households alike.</span>
+    </h2>
 
     <div class="audience">
-      <article class="acard reveal">
-        <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1400&q=85"
-             alt="A small business owner in a bright office" loading="lazy">
+      <article class="acard">
+        <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1400&q=85" alt="A small business owner in a bright office" loading="lazy">
         <div class="acard__ov"></div>
         <div class="acard__body">
-          <span class="mono-label mono-label--light">For business</span>
+          <span class="acard__label">For business</span>
           <h3>Small-business owners</h3>
           <p>Scale capacity without hiring full-time. Get project-based support exactly when you need it.</p>
           <div class="acard__tags">
             <span>AC &amp; maintenance</span><span>IT support</span><span>Drivers</span>
-            <span>Cleaners</span><span>Accountants</span><span>Designers</span>
+            <span>Cleaners</span><span>Accountants</span>
           </div>
         </div>
       </article>
 
-      <article class="acard reveal" style="--d:140ms">
-        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=85"
-             alt="A warm, sunlit home interior" loading="lazy">
+      <article class="acard">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=85" alt="A warm, sunlit home interior" loading="lazy">
         <div class="acard__ov"></div>
         <div class="acard__body">
-          <span class="mono-label mono-label--light">For home</span>
+          <span class="acard__label">For home</span>
           <h3>Households &amp; homeowners</h3>
           <p>Find trusted workers for everyday needs — with clear pricing before you book.</p>
           <div class="acard__tags">
             <span>Electrical</span><span>Plumbing</span><span>Cleaning</span>
-            <span>AC maintenance</span><span>Painting</span><span>General</span>
+            <span>AC maintenance</span><span>Painting</span>
           </div>
         </div>
       </article>
@@ -603,143 +483,92 @@
   </div>
 </section>
 
-<!-- ============ SCENARIOS ============ -->
-<section class="section section--rule">
+<!-- ============ 08 — SCENARIOS ============ -->
+<section class="s s--light s--compact" id="s08" data-section="s08">
   <div class="container">
-    <header class="sec-head">
-      <span class="mono-label">N° 008 — Scenarios</span>
-      <h2 class="sec-title">Real requests. <em>Real matches.</em></h2>
-    </header>
+    <div class="chapter"><span>08</span> Scenarios</div>
+
+    <h2 class="display">
+      Real requests.<br>
+      <span class="accent">Real matches.</span>
+    </h2>
 
     <div class="scenarios">
-      <article class="scard reveal">
-        <div class="scard__photo">
-          <img src="https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=1000&q=85"
-               alt="Technician fixing an AC unit" loading="lazy">
-        </div>
+      <article class="scard">
         <div class="scard__role">Small-business owner</div>
-        <blockquote class="scard__quote">
-          My office AC broke down. I need a technician tomorrow afternoon. Budget: SAR 300.
-        </blockquote>
+        <p class="scard__quote">"My office AC broke down. I need a technician tomorrow afternoon. Budget: SAR 300."</p>
         <div class="scard__result">
-          <span class="mono-label">Result</span>
-          Three available, top-rated AC technicians within budget — with secure booking.
+          <span class="mono">Result</span>
+          Three available, top-rated AC technicians within budget.
         </div>
       </article>
 
-      <article class="scard reveal" style="--d:120ms">
-        <div class="scard__photo">
-          <img src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=1000&q=85"
-               alt="A home being cleaned" loading="lazy">
-        </div>
+      <article class="scard">
         <div class="scard__role">Homeowner</div>
-        <blockquote class="scard__quote">
-          I need a cleaner every Saturday morning. Budget: SAR 200 per visit.
-        </blockquote>
+        <p class="scard__quote">"I need a cleaner every Saturday morning. Budget: SAR 200 per visit."</p>
         <div class="scard__result">
-          <span class="mono-label">Result</span>
-          Local cleaners with Saturday availability and recurring-booking options.
+          <span class="mono">Result</span>
+          Local cleaners with Saturday availability and recurring booking.
         </div>
       </article>
 
-      <article class="scard reveal" style="--d:240ms">
-        <div class="scard__photo">
-          <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=1000&q=85"
-               alt="A designer working on a logo" loading="lazy">
-        </div>
+      <article class="scard">
         <div class="scard__role">Startup founder</div>
-        <blockquote class="scard__quote">
-          I need a graphic designer for a logo project. Budget: SAR 1,500. Deadline: two weeks.
-        </blockquote>
+        <p class="scard__quote">"I need a graphic designer for a logo. Budget: SAR 1,500. Deadline: two weeks."</p>
         <div class="scard__result">
-          <span class="mono-label">Result</span>
-          Designers with relevant portfolios and milestone-payment options.
+          <span class="mono">Result</span>
+          Designers with relevant portfolios and milestone payments.
         </div>
       </article>
     </div>
   </div>
 </section>
 
-<!-- ============ FINAL CTA ============ -->
-<section class="section section--ink cta-wrap" id="waitlist-final">
+<!-- ============ 09 — CTA (dark) ============ -->
+<section class="s s--dark s--cta" id="s09" data-section="s09">
   <div class="container">
-    <div class="cta">
-      <figure class="cta__photo" aria-hidden="true">
-        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1600&q=85" alt="" loading="lazy">
-      </figure>
+    <div class="chapter chapter--light chapter--center"><span>09</span> Join the pilot</div>
 
-      <header class="sec-head sec-head--center cta__head">
-        <span class="mono-label mono-label--light">N° 009 — Access</span>
-        <h2 class="sec-title sec-title--light">
-          Ready to find <em>your worker?</em>
-        </h2>
-        <p class="sec-lead sec-lead--light">
-          Join the waitlist for early access. Be first to know when WorkMatch launches in your area —
-          and get your first matching experience <em>free during the pilot.</em>
-        </p>
-      </header>
+    <h2 class="display display--center display--light">
+      Ready to find<br>
+      <span class="accent-light">your worker?</span>
+    </h2>
 
-      <form class="wl wl--light js-waitlist" novalidate>
-        <div class="wl__field">
-          <input type="email" name="email" placeholder="you@company.com" required aria-label="Email address">
-        </div>
-        <button type="submit" class="btn btn--accent">
-          Join the waitlist
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </button>
-      </form>
+    <p class="cta__lead">
+      Join the waitlist. First matching experience is free during the pilot.
+    </p>
 
-      <p class="wl-note wl-note--light">
-        <span class="dot dot--light"></span>
-        We respect your privacy. No spam. Unsubscribe anytime.
-      </p>
-    </div>
+    <form class="wl wl--light js-waitlist" novalidate>
+      <div class="wl__field">
+        <input type="email" name="email" placeholder="you@company.com" required aria-label="Email address">
+      </div>
+      <button type="submit" class="btn btn--accent">
+        Join the waitlist
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+    </form>
+
+    <p class="wl-note wl-note--light">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      No spam. Unsubscribe anytime.
+    </p>
   </div>
 </section>
 
 <!-- ============ FOOTER ============ -->
 <footer class="footer">
-  <div class="container">
-    <div class="footer__top">
-      <div class="footer__brand">
-        <a href="#" class="brand brand--light">
-          <span class="brand__mark" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2 4 6v6c0 5 3.4 9.2 8 10 4.6-.8 8-5 8-10V6l-8-4Z"/>
-              <path d="m9 12 2 2 4-4"/>
-            </svg>
-          </span>
-          <span class="brand__name">WorkMatch</span>
-        </a>
-        <p class="footer__desc">
-          Describe your job. Let AI find the right worker. Get the job done.
-        </p>
-      </div>
-
-      <div class="footer__links">
-        <div class="footer__col">
-          <h4>Product</h4>
-          <a href="#how">How it works</a>
-          <a href="#workers">Featured workers</a>
-          <a href="#features">Features</a>
-          <a href="#who">Who it's for</a>
-        </div>
-        <div class="footer__col">
-          <h4>Company</h4>
-          <a href="#waitlist-final">Join waitlist</a>
-          <a href="#">Privacy</a>
-          <a href="#">Terms</a>
-          <a href="#">Contact</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="footer__bottom">
-      <span>© 2026 WorkMatch — All rights reserved.</span>
-      <span class="footer__mark">
-        Tell us what you need. We'll find the right worker.
+  <div class="container footer__inner">
+    <a href="#" class="brand brand--light">
+      <span class="brand__mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2 4 6v6c0 5 3.4 9.2 8 10 4.6-.8 8-5 8-10V6l-8-4Z"/>
+          <path d="m9 12 2 2 4-4"/>
+        </svg>
       </span>
-    </div>
+      <span class="brand__name">WorkMatch</span>
+    </a>
+    <p class="footer__tag">Describe the job. Let AI find the right worker. Get it done.</p>
+    <p class="footer__copy">© 2026 WorkMatch</p>
   </div>
 </footer>
 
