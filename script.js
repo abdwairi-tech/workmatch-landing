@@ -1,5 +1,5 @@
 /* ==========================================================
-   WORKMATCH — Interactions (final)
+   WORKMATCH — Interactions
    ========================================================== */
 
 /* ---------- Nav scroll state ---------- */
@@ -23,7 +23,7 @@ if (progressBar) {
   window.addEventListener('resize', updateProgress);
 }
 
-/* ---------- Chapter dot nav — active state ---------- */
+/* ---------- Chapter dot nav active state ---------- */
 const chapLinks = document.querySelectorAll('.chapnav a');
 const sections = document.querySelectorAll('section[data-section]');
 
