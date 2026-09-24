@@ -1,5 +1,5 @@
 /* ==========================================================
-   WORKMATCH — Interactions v5
+   WORKMATCH — Interactions (final)
    ========================================================== */
 
 /* ---------- Nav scroll state ---------- */
@@ -50,7 +50,7 @@ document.querySelectorAll('.js-waitlist').forEach((form) => {
     const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 
     if (!valid) {
-      input.style.borderColor = '#C8451A';
+      input.style.borderColor = '#FF6B35';
       input.focus();
       setTimeout(() => { input.style.borderColor = ''; }, 1600);
       return;
@@ -59,7 +59,7 @@ document.querySelectorAll('.js-waitlist').forEach((form) => {
     const isLight = form.classList.contains('wl--light');
     form.innerHTML =
       '<div class="form-success" style="' +
-        (isLight ? 'background:rgba(76,139,94,.14);border-color:rgba(76,139,94,.35);color:#9DDBAA;' : '') +
+        (isLight ? 'background:rgba(76,139,94,.16);border-color:rgba(76,139,94,.4);color:#9DDBAA;' : '') +
       '">' +
         '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>' +
         "You're on the list — we'll be in touch soon." +
