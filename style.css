@@ -262,14 +262,19 @@ p{color:var(--text-2)}
 }
 .hero__photo::after{
   content:'';position:absolute;inset:0;
-  background:linear-gradient(180deg,rgba(20,17,15,0) 40%,rgba(20,17,15,.55) 100%);
+  background:linear-gradient(180deg,rgba(20,17,15,.35) 0%,rgba(20,17,15,0) 35%,rgba(20,17,15,0) 60%,rgba(20,17,15,.35) 100%);
   pointer-events:none;
 }
+
+/* ✅ FIX: caption moved to top-right, away from the floating card */
 .hero__photo-cap{
-  position:absolute;bottom:22px;left:24px;right:24px;z-index:2;
+  position:absolute;top:22px;right:24px;
+  z-index:2;
   display:flex;flex-direction:column;gap:6px;color:var(--paper);
+  text-align:right;align-items:flex-end;
+  text-shadow:0 1px 4px rgba(0,0,0,.5);
 }
-.hero__photo-cap .mono-label{color:rgba(246,242,235,.7)}
+.hero__photo-cap .mono-label{color:rgba(246,242,235,.85)}
 .hero__photo-cap span:last-child{
   font-family:'Plus Jakarta Sans',sans-serif;
   font-weight:600;
@@ -281,8 +286,11 @@ p{color:var(--text-2)}
   background:#FFFDF9;border:1px solid var(--line-2);border-radius:14px;
   overflow:hidden;position:relative;
 }
+
+/* ✅ FIX: added z-index so the card always sits above the photo + caption */
 .surface--float{
   position:absolute;bottom:-30px;left:-30px;width:min(420px,90%);
+  z-index:20;
   box-shadow:
     0 40px 80px -30px rgba(20,17,15,.4),
     0 2px 4px rgba(20,17,15,.06);
@@ -890,6 +898,10 @@ p{color:var(--text-2)}
   .scard__quote{font-size:.98rem}
   .problem__lead{font-size:1.1rem}
   .band figure{width:220px;height:280px}
+
+  /* Mobile tweak for the moved caption */
+  .hero__photo-cap{top:14px;right:14px}
+  .hero__photo-cap span:last-child{font-size:.9rem}
 }
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{
